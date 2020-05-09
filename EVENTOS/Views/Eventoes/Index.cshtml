@@ -1,0 +1,63 @@
+﻿@model IEnumerable<EVENTOS.Models.Evento>
+
+@{
+    ViewBag.Title = "index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("CREAR NUEVO EVENTO", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            EVENTO
+        </th>
+        <th>
+            TIPO DE EVENTO
+        </th>
+        <th>
+            LUGAR
+        </th>
+        <th>
+            FECHA
+        </th>
+        <th>
+            TIPO EVENTO
+        </th>
+        <th>
+            CLIENTE
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descripción)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Lugar)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fecha)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Usuario)
+        </td>
+        <td>
+            @Html.ActionLink("EDITAR", "Edit", new { id=item.Id }) 
+            @Html.ActionLink("DETALLES", "Details", new { id=item.Id }) 
+            @Html.ActionLink("ELIMINAR", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
